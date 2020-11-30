@@ -1,24 +1,21 @@
 (ns ^:figwheel-hooks guis.core
   (:require
    [goog.dom :as gdom]
-   [reagent.core :as reagent :refer [atom]]
-   [reagent.dom :as rdom]))
+   [reagent.dom :as rdom]
+   [guis.tasks.counter :as counter]))
 
 (defn multiply [a b] (* a b))
-
-;; define your app data so that it doesn't get over-written on reload
-(defonce app-state (atom {:text "Hello world!"}))
 
 (defn get-app-element []
   (gdom/getElement "app"))
 
-(defn hello-world []
+(defn app []
   [:div
-   [:h1 (:text @app-state)]
-   [:h3 "Edit this in src/guis/core.cljs and watch it change!"]])
+   [:h2 "Counter"]
+   [counter/counter]])
 
 (defn mount [el]
-  (rdom/render [hello-world] el))
+  (rdom/render [app] el))
 
 (defn mount-app-element []
   (when-let [el (get-app-element)]
@@ -34,4 +31,4 @@
   ;; optionally touch your app-state to force rerendering depending on
   ;; your application
   ;; (swap! app-state update-in [:__figwheel_counter] inc)
-)
+  )
