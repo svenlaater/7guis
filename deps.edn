@@ -6,6 +6,9 @@
                  {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}
                   com.bhauman/figwheel-main {:mvn/version "0.2.11"}}
                  :extra-paths ["target" "test"]}
-           :dev {:main-opts ["-m" "figwheel.main" "-b" "dev" "-r"]}
+           :dev   {:main-opts ["-m" "figwheel.main" "-b" "dev" "-r"]}
            :min   {:main-opts ["-m" "figwheel.main" "-O" "advanced" "-bo" "dev"]}
-           :test  {:main-opts ["-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "guis.test-runner"]}}}
+           :test  {:main-opts ["-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "guis.test-runner"]}
+           :ci    {:main-opts ["-m" "figwheel.main" "-co" "test.cljs.edn" "-m" "guis.test-runner"]}
+           :lint {:extra-deps {clj-kondo {:mvn/version "2020.11.07"}}
+                  :main-opts  ["-m" "clj-kondo.main" "--lint" "src"]} }}

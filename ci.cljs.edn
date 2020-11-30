@@ -1,0 +1,10 @@
+^{
+  ;; Launch tests in CircleCI (Debian + headless Chrome) 
+  :launch-js ["/opt/google/chrome/chrome"
+              "--headless"
+              "--disable-gpu"
+              "--repl"
+              "--disable-dev-shm"
+              :open-url]}
+
+{:main guis.test-runner}
