@@ -13,3 +13,4 @@ target/*
 .eastwood
 .nrepl*
 .clj-kondo/.cache
+.rebel_readline_history
