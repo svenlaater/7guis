@@ -1,0 +1,15 @@
+# EMACS
+*~
+\#*\#
+.\#*
+
+# OSX
+.DS_Store
+
+# Clojure(Script)
+classes/*
+target/*
+.cpcache/*
+.eastwood
+.nrepl*
+.clj-kondo/.cache
