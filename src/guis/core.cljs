@@ -2,7 +2,8 @@
   (:require
    [goog.dom :as gdom]
    [reagent.dom :as rdom]
-   [guis.tasks.counter :as counter]))
+   [guis.tasks.counter :as counter]
+   [guis.tasks.temperature-converter :as temperature-converter]))
 
 (defn multiply [a b] (* a b))
 
@@ -12,7 +13,9 @@
 (defn app []
   [:div
    [:h2 "Counter"]
-   [counter/counter]])
+   [counter/counter]
+   [:h2 "Temperature converter"]
+   [temperature-converter/converter]])
 
 (defn mount [el]
   (rdom/render [app] el))
@@ -27,8 +30,9 @@
 
 ;; specify reload hook with ^;after-load metadata
 (defn ^:after-load on-reload []
-  (mount-app-element)
+  (mount-app-element))
   ;; optionally touch your app-state to force rerendering depending on
   ;; your application
   ;; (swap! app-state update-in [:__figwheel_counter] inc)
-  )
+  
+:after-load
